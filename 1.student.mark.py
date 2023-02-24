@@ -1,6 +1,7 @@
 ALL_STUDENTS = {}
 ALL_COURSES = {}
 
+
 def STUDENT_input():
     STUDENT_num = int(input("Enter the number of students: "))
     for i in range (STUDENT_num):
