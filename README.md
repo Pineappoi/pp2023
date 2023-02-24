@@ -11,4 +11,4 @@ Student Info
 
 * Student Name: HOANG THE DUY
 * Student ID: BI12-129
-
+* Class: CS
