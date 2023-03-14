@@ -1,4 +1,4 @@
-class Student:
+class STUDENT:
     def __init__(self, name, DOB, student_ID):
         self.name = name
         self.DOB = DOB
@@ -16,11 +16,14 @@ class Student:
     def input_mark(self, course_ID, mark):
         self.marks[course_ID] = mark
 
-class Course:
+class COURSE:
     def __init__(self, name, course_ID):
         self.name = name
         self.marks = {}
         self.course_ID = course_ID
+
+    def input_mark(self, student_ID, mark):
+        self.marks[student_ID] = mark
 
 ALL_STUDENTS = {}
 ALL_COURSES = {}
@@ -59,18 +62,18 @@ def MARK_input():
         if course_ID in ALL_COURSES and student_ID in ALL_STUDENTS:
             MARK = int(input("Enter mark: "))
             ALL_STUDENTS[student_ID].input_mark(course_ID, MARK)
-            ALL_COURSES[course_ID].marks[student_ID] = MARK
+            ALL_COURSES[course_ID].input_mark(student_ID, MARK)
             break
         else: 
             print("Please input a valid course/student ID.")
                 
 def STUDENT_list():
     for student_ID in ALL_STUDENTS:
-        print(ALL_STUDENTS)
+        print(ALL_STUDENTS[student_ID].__dict__)
 
 def COURSE_list():
     for course_ID in ALL_COURSES:
-        print(ALL_COURSES)
+        print(ALL_COURSES[course_ID].__dict__)
 
 def MARK_show():
     while True:
