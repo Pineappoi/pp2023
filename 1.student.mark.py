@@ -10,7 +10,7 @@ def STUDENT_input():
         STUDENT["DOB"] = input("Enter the student's date of birth: ")
         STUDENT["marks"] = {}
         STUDENT["courses"] = []
-        ID = int(input("Enter the student's ID: "))
+        ID = (input("Enter the student's ID: "))
         STUDENT["student_ID"] = ID
         ALL_STUDENTS[ID] = STUDENT
 
@@ -20,7 +20,7 @@ def COURSE_input():
         COURSE = {}
         COURSE["name"] = input("Enter the name of the course: ")
         COURSE["marks"] = {}
-        ID = int(input("Enter the ID of the course: "))
+        ID = (input("Enter the ID of the course: "))
         COURSE["course_ID"] = ID
         ALL_COURSES[ID] = COURSE
 
@@ -30,7 +30,7 @@ def COURSE_select():
         course_ID = int(input("Enter the ID of the course you want to enroll in: "))
         if course_ID in ALL_COURSES and student_ID in ALL_STUDENTS:
             ALL_STUDENTS[student_ID]["courses"] = course_ID
-            print("SUCESS!")
+            print("SUCCESS!")
             break
         else:
             print("Please input a valid course/student ID.")
