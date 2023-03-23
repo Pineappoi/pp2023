@@ -76,12 +76,19 @@ class MANAGEMENT:
                 print("Please input a valid course/student ID.")
 
     def STUDENT_list(self):
-        for student_ID in self.ALL_STUDENTS:
-            print(self.ALL_STUDENTS[student_ID].__dict__)
+        for i, student_ID in enumerate(self.ALL_STUDENTS):
+            print(str(i+1)+". "+self.ALL_STUDENTS[student_ID].name)
+            print("   "+self.ALL_STUDENTS[student_ID].DOB)
+            print("   ID: "+self.ALL_STUDENTS[student_ID].student_ID)
+            print("   GPA: "+str(self.ALL_STUDENTS[student_ID].GPA))
+            print("   Courses: "+str(self.ALL_STUDENTS[student_ID].courses))
 
     def COURSE_list(self):
-        for course_ID in self.ALL_COURSES:
-            print(self.ALL_COURSES[course_ID].__dict__)
+        for i, course_ID in enumerate(self.ALL_COURSES):
+            print(str(i+1)+". "+self.ALL_COURSES[course_ID].name)
+            print("   "+self.ALL_COURSES[course_ID].course_ID)
+            print("   "+str(self.ALL_COURSES[course_ID].credits)+" credits")
+            print("   Marks: "+str(self.ALL_COURSES[course_ID].marks))
 
     def MARK_show(self):
         while True:
@@ -111,15 +118,15 @@ class MANAGEMENT:
         for student_ID in MANAGEMENT.ALL_STUDENTS:
             if MANAGEMENT.get_GPA(student_ID) in sorted_GPA:
                 sorted_GPA.remove(MANAGEMENT.get_GPA(student_ID))
-                print(MANAGEMENT.ALL_STUDENTS[student_ID].name + ": " + str(MANAGEMENT.get_GPA(student_ID)))
+                print("[+] " + MANAGEMENT.ALL_STUDENTS[student_ID].name + ": " + str(MANAGEMENT.get_GPA(student_ID)))
 
 MANAGEMENT = MANAGEMENT()
 
 #Test
 # Create 3 students
-student1 = STUDENT('John', '01/01/2001', '1')
-student2 = STUDENT('Tom', '02/02/2002', '2')
-student3 = STUDENT('Alice', '03/03/2003', '3')
+student1 = STUDENT('Hieu', '01/01/2001', '1')
+student2 = STUDENT('Tien', '02/02/2002', '2')
+student3 = STUDENT('Hai', '03/03/2003', '3')
 
 # Add the students to the MANAGEMENT class
 MANAGEMENT.ALL_STUDENTS['1'] = student1
@@ -165,13 +172,13 @@ MANAGEMENT.get_GPA('3')
 
 while True:
     print("Choose a function to use:")
-    print("1. STUDENT_input()")
-    print("2. COURSE_input()")
-    print("3. COURSE_enroll()")
-    print("4. MARK_input()")
-    print("5. MARK_show()")
-    print("6. STUDENT_list()")
-    print("7. COURSE_list()")
+    print("1. Input student information")
+    print("2. Input course information")
+    print("3. Enroll a student to a course")
+    print("4. Input mark of a student for a course")
+    print("5. Show mark of a student for a course")
+    print("6. List all students")
+    print("7. List all courses")
     print("8. Get GPA of a student")
     print("9. Sort students by GPA")
     print("10. Exit")
